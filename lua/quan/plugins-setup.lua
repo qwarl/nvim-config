@@ -36,6 +36,9 @@ return packer.startup(function(use)
 	use("christoomey/vim-tmux-navigator")
 
 	use("bluz71/vim-nightfly-colors")
+	use({
+		"folke/tokyonight.nvim",
+	})
 
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
