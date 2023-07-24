@@ -3,8 +3,8 @@ vim.g.mapleader = ' '
 local keymap = vim.keymap
 
 -- map jj to esc 
-keymap.set("i", "jj", "<Esc>")
-keymap.set("v", "jj", "<Esc>")
+keymap.set("i", "jk", "<Esc>")
+keymap.set("v", "jk", "<Esc>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
