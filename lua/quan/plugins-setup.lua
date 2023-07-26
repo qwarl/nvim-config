@@ -108,6 +108,12 @@ return packer.startup(function(use)
 	-- toggleterm (terminal for nvim)
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
+	-- multi cursor for neovim
+	use("mg979/vim-visual-multi")
+
+	-- display line inside brackets
+	use("lukas-reineke/indent-blankline.nvim", { branch = "lua" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

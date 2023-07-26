@@ -10,9 +10,12 @@ toggleterm.setup({
 	direction = "horizontal",
 	hide_numbers = true,
 	shade_filetypes = {},
-	insert_mapping = true,
+	-- insert_mapping = false,
+	-- start_in_insert = false,
+	persist_size = false,
 })
 
+-- use esc, jk ctrl hjkl in terminal
 function _G.set_terminal_keymaps()
 	local opts = { buffer = 0 }
 	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)

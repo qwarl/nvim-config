@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/quan/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/quan/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/quan/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -235,6 +240,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/quan/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/quan/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   }
 }
 
