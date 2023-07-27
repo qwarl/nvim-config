@@ -114,6 +114,9 @@ return packer.startup(function(use)
 	-- display line inside brackets
 	use("lukas-reineke/indent-blankline.nvim", { branch = "lua" })
 
+	-- rest api in neovim
+	use("rest-nvim/rest.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
