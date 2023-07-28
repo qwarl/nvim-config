@@ -123,6 +123,9 @@ return packer.startup(function(use)
 	-- nvim-ts-rainbow (highlight brackets)
 	use("HiPhish/nvim-ts-rainbow2")
 
+	-- rest api in neovim
+	use("rest-nvim/rest.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
