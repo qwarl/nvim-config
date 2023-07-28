@@ -114,6 +114,15 @@ return packer.startup(function(use)
 	-- display line inside brackets
 	use("lukas-reineke/indent-blankline.nvim", { branch = "lua" })
 
+	-- git signs plugin
+	use("lewis6991/gitsigns.nvim")
+
+	-- buffer line, (show tab)
+	-- use({ "akinsho/bufferline.nvim", tag = "*" })
+
+	-- nvim-ts-rainbow (highlight brackets)
+	use("HiPhish/nvim-ts-rainbow2")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
