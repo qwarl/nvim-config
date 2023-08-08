@@ -15,13 +15,47 @@ nvimtree.setup({
 	renderer = {
 		icons = {
 			glyphs = {
+				default = "󰈚",
+				symlink = "",
 				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
+					default = "",
+					empty = "",
+					empty_open = "",
+					open = "",
+					symlink = "",
+					symlink_open = "",
+					arrow_open = "",
+					arrow_closed = "",
+				},
+
+				git = {
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+					deleted = "",
+					ignored = "◌",
 				},
 			},
 		},
 	},
+	-- renderer = {
+	-- 	root_folder_label = false,
+	-- 	highlight_git = false,
+	-- 	highlight_opened_files = "none",
+	--
+	-- 	indent_markers = {
+	-- 		enable = false,
+	-- 	},
+	--
+	-- 	icons = {
+	-- 		show = {
+	-- 			file = true,
+	-- 			folder = true,
+	-- 			folder_arrow = true,
+	-- 			git = false,
+	-- 		},
 
 	actions = {
 		open_file = {
