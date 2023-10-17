@@ -6,11 +6,6 @@ local keymap = vim.keymap
 keymap.set("i", "jk", "<Esc>")
 keymap.set("v", "jk", "<Esc>")
 
--- map gf to open/create non exist file
--- keymap.set("n", "gf", "<cfile><cr>")
-keymap.set("n", "gf", ":<cfile><CR>", { noremap = true, silent = true, desc = "Save buffer" })
--- keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", { noremap = true, silent = true }) -- show definition, references
-
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
