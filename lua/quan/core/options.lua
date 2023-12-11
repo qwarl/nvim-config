@@ -32,7 +32,6 @@ set.backspace = "indent,eol,start"
 
 --clipboard
 set.clipboard = "unnamedplus" -- copy neovim to clipboard
--- set.clipboard:append('unnamedplus')
 
 -- allow mouse to be used in neovim
 set.mouse = "a"
