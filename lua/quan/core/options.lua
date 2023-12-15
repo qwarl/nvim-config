@@ -38,3 +38,7 @@ set.mouse = "a"
 
 -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 set.writebackup = false
+
+-- undercurl
+vim.cmd([[let &t_Cs =  "\e[4:3m"]])
+vim.cmd([[let &t_Ce =  "\e[4:3m"]])
