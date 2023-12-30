@@ -18,14 +18,20 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Note
+-- "<cmd>key_binds<CR>": The command to be executed when the key combination is pressed
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+-- Save using ctrl S
+keymap("n", "<C-s>", "<cmd>w<CR>", opts)
+-- Move a line in normal mode
+keymap("n", "<A-Down>", "<cmd>m .+1<CR>", opts)
+keymap("n", "<A-Up>", "<cmd>m .-2<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -40,7 +46,11 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-keymap("v", "jk", "<ESC>", opts)
+-- Press ctrl+s to save file without exit insert mode
+keymap("i", "<C-s>", "<cmd>w<CR>", opts)
+-- Move a line up or down when in insert mode
+keymap("i", "<A-Down>", "<cmd>m .+1<CR>", opts)
+keymap("i", "<A-Up>", "<cmd>m .-2<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -51,6 +61,9 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
+
+-- Exit to normal mode
+keymap("v", "jk", "<ESC>", opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -79,4 +92,3 @@ keymap("t", "<C-w>", [[<C-\><C-n><C-w>]], term_opts)
 -- keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
 -- keymap("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
 -- keymap("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
-
