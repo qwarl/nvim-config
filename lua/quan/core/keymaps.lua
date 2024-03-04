@@ -32,6 +32,8 @@ keymap("n", "<C-s>", "<cmd>w<CR>", opts)
 -- Move a line in normal mode
 keymap("n", "<A-Down>", "<cmd>m .+1<CR>", opts)
 keymap("n", "<A-Up>", "<cmd>m .-2<CR>", opts)
+-- Select all text with ctrl a
+keymap("n", "<C-a>", "ggVG", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -51,6 +53,9 @@ keymap("i", "<C-s>", "<cmd>w<CR>", opts)
 -- Move a line up or down when in insert mode
 keymap("i", "<A-Down>", "<cmd>m .+1<CR>", opts)
 keymap("i", "<A-Up>", "<cmd>m .-2<CR>", opts)
+
+-- Select all text with ctrl a
+keymap("i", "<C-a>", "<Esc>ggVG", opts)
 
 -- Visual --
 -- Stay in indent mode
