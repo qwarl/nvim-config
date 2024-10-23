@@ -6,20 +6,13 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- exit insert or visual or terminal mode with jk
 map({ "i", "v", "t" }, "77", "<esc>", { desc = "Enter Normal Mode" })
+map({ "i", "v", "t" }, "<A-m>", "<esc>", { desc = "Enter Normal Mode" })
 
 -- select all text with ctrl a
 map({ "i", "v", "n" }, "<C-a>", "ggVG", { desc = "Select All Text" })
 
 -- open files explorer by Oil
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
--- Move Lines
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>")
@@ -45,10 +38,6 @@ map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
-
--- better indenting
-map("v", "<", "<gv")
-map("v", ">", ">gv")
 
 -- commenting
 map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
