@@ -45,7 +45,7 @@ return {
 					inactive = { c = { fg = colors.fg, bg = colors.bg } },
 				},
 				-- theme = 'gruvbox'
-				disabled_filetypes = { "neo-tree" },
+				disabled_filetypes = { "neo-tree", "dashboard" },
 			},
 			sections = {
 				-- these are to remove the defaults
@@ -125,11 +125,11 @@ return {
 			cond = conditions.buffer_not_empty,
 		})
 
-		ins_left({
-			-- filetype component
-			"filetype",
-			cond = conditions.buffer_not_empty,
-		})
+		-- ins_left({
+		-- 	-- filetype component
+		-- 	"filetype",
+		-- 	cond = conditions.buffer_not_empty,
+		-- })
 
 		ins_left({
 			"filename",
