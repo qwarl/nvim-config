@@ -31,5 +31,7 @@ return {
 		require("mini.misc").setup({})
 
 		require("mini.misc").setup_auto_root({ ".git", "Makefile", "package.json" })
+
+    require("mini.move").setup({})
 	end,
 }
