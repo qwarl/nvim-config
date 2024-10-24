@@ -45,7 +45,7 @@ return {
 
 				-- Fuzzy find all the symbols in your current workspace.
 				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("<leader>Ds", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
@@ -87,10 +87,27 @@ return {
 					-- Toggle inlay hints
 					map("<leader>uh", function()
 						local buf = vim.api.nvim_get_current_buf()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
+						local enabled = not vim.lsp.inlay_hint.is_enabled({ bufnr = buf })
+						vim.lsp.inlay_hint.enable(enabled, { bufnr = buf })
+
+						-- Notify user
+						if enabled then
+							vim.notify("Inlay hints enabled for this buffer.", vim.log.levels.INFO)
+						else
+							vim.notify("Inlay hints disabled for this buffer.", vim.log.levels.INFO)
+						end
 					end, "Toggle Inlay Hints")
+
 					map("<leader>uH", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+						local enabled = not vim.lsp.inlay_hint.is_enabled()
+						vim.lsp.inlay_hint.enable(enabled)
+
+						-- Notify user
+						if enabled then
+							vim.notify("Inlay hints enabled globally.", vim.log.levels.INFO)
+						else
+							vim.notify("Inlay hints disabled globally.", vim.log.levels.INFO)
+						end
 					end, "Inlay Hints (Global)")
 
 					-- Enable inlay hints by default
@@ -110,35 +127,9 @@ return {
 
 		local servers = {
 			-- lsp
-			-- ts_ls = {
-			-- 	settings = {
-			-- 		typescript = {
-			-- 			inlayHints = {
-			-- 				-- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-			-- 				includeInlayEnumMemberValueHints = true,
-			-- 				includeInlayFunctionLikeReturnTypeHints = true,
-			-- 				includeInlayFunctionParameterTypeHints = true,
-			-- 				includeInlayParameterNameHints = 'all',
-			-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
-			-- 				includeInlayPropertyDeclarationTypeHints = true,
-			-- 				includeInlayVariableTypeHints = true,
-			-- 				includeInlayVariableTypeHintsWhenTypeMatchesName = true -- false
-			-- 			}
-			-- 		},
-			-- 		javascript = {
-			-- 			inlayHints = {
-			-- 				includeInlayEnumMemberValueHints = true,
-			-- 				includeInlayFunctionLikeReturnTypeHints = true,
-			-- 				includeInlayFunctionParameterTypeHints = true,
-			-- 				includeInlayParameterNameHints = 'all',
-			-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-			-- 				includeInlayPropertyDeclarationTypeHints = true,
-			-- 				includeInlayVariableTypeHints = true,
-			-- 				includeInlayVariableTypeHintsWhenTypeMatchesName = true
-			-- 			}
-			-- 		},
-			-- 	},
-			-- },
+			bashls = {
+				filetypes = { "sh", "zsh" },
+			},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -198,10 +189,12 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			-- linter and formatter
-			"stylua", -- Used to format Lua code
-			"prettier",
 			"markdownlint-cli2",
 			"markdown-toc",
+			"prettier",
+			"beautysh",
+			"shellcheck",
+			"stylua", -- Used to format Lua code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
