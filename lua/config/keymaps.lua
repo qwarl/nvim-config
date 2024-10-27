@@ -96,3 +96,12 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- mason
 map("n", "<leader>cm", "<cmd>Mason<cr>", { desc = "Mason" })
+
+-- enter new line without move code to next line
+map("i", "<c-cr>", "<esc>o", { desc = "Enter New Line" })
+
+-- add new line above/below current line without entering insert mode
+map({ "n", "v" }, "<leader>au", "O<esc>j", { desc = "Add New Line Above" })
+map({ "n", "v" }, "<leader>ad", "o<esc>k", { desc = "Add New Line Below" })
+map({ "n", "v" }, "[o", "O<esc>j", { desc = "Add New Line Above" })
+map({ "n", "v" }, "]o", "o<esc>k", { desc = "Add New Line Below" })
