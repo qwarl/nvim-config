@@ -1,7 +1,7 @@
 local is_path = require("util.config_checker")
 
 return {
-	{ -- Highlight, edit, and navigate code
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
@@ -41,20 +41,20 @@ return {
 			auto_install = true,
 			highlight = {
 				enable = true,
-				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-				--  If you are experiencing weird indenting issues, add the language to
-				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				-- additional_vim_regex_highlighting = { 'ruby' },
 			},
 			autotag = { enable = false },
 			indent = { enable = true },
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "gnn",
-					node_incremental = "grn",
-					scope_incremental = "grc",
-					node_decremental = "grm",
+					-- init_selection = "<C-space>",
+					-- node_incremental = "<C-space>",
+					-- scope_incremental = false,
+					-- node_decremental = "<bs>",
+					init_selection = "<C-\\>",
+					node_incremental = "<C-\\>",
+					scope_incremental = false,
+					node_decremental = "<bs>",
 				},
 			},
 		},
@@ -104,9 +104,6 @@ return {
 					enable_rename = true, -- Auto rename pairs of tags
 					enable_close_on_slash = false, -- Auto close on trailing </
 				},
-				-- Also override individual filetype configs, these take priority.
-				-- Empty by default, useful if one of the "opts" global settings
-				-- doesn't work well in a specific filetype
 			})
 		end,
 	},
