@@ -3,6 +3,7 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-ui-select.nvim" },
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -16,9 +17,6 @@ return {
 			end
 		end
 
-		pcall(require("telescope").load_extension, "fzf")
-		pcall(require("telescope").load_extension, "ui-select")
-
 		-- I want to search in hidden/dot files.
 		table.insert(vimgrep_arguments, "--hidden")
 		-- I don't want to search in the `.git` directory.
@@ -26,6 +24,11 @@ return {
 		table.insert(vimgrep_arguments, "!**/.git/*")
 
 		telescope.setup({
+			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown({}),
+				},
+			},
 			defaults = {
 				path_display = { "smart" },
 			},
@@ -35,6 +38,9 @@ return {
 				},
 			},
 		})
+
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("ui-select")
 	end,
 	keys = {
 		{
