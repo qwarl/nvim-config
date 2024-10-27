@@ -46,4 +46,8 @@ problems:
   + update: typo in options. fixed
 
 - setting `disable_filetypes = { "dashboard" }` in lualine configuration (for linux) and `hide = { statusline }` in dashboard (for windows) to make sure statusline doesn't display in dashboard
+    - update: the first works for linux and second works on windows, cmt first setting on windows to make it no visible a blank lualine
 - about display image in neovim. terminal supports kitty graphic protocol should uses `kitty` as backend for better perf, terminal supports sixel will uses `ueberzug` to display images. in tmux, no idea how to detect what terminal tmux is running on
+
+- <leader>ca currently show action via notification but not popup
+    - update: noice setup caused this. temp disable it
