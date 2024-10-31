@@ -90,9 +90,11 @@ map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
 map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
 map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
 map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>n", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "]<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "<leader><tab>p", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "[<tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- mason
 map("n", "<leader>cm", "<cmd>Mason<cr>", { desc = "Mason" })
@@ -105,3 +107,8 @@ map({ "n", "v" }, "<leader>au", "O<esc>j", { desc = "Add New Line Above" })
 map({ "n", "v" }, "<leader>ad", "o<esc>k", { desc = "Add New Line Below" })
 map({ "n", "v" }, "[o", "O<esc>j", { desc = "Add New Line Above" })
 map({ "n", "v" }, "]o", "o<esc>k", { desc = "Add New Line Below" })
+
+-- exit insert mode in terminal
+map("t", "<A-m>", "<C-\\><C-n>", { desc = "Exit insert mode in terminal" })
+map("t", "<esc>", "<C-\\><C-n>", { desc = "Exit insert mode in terminal" })
+map({ "n", "v" }, "<leader>ct", "<cmd>terminal<cr>", { desc = "New Terminal" })
