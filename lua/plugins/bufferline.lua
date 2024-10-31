@@ -3,8 +3,7 @@ return {
 	version = "*",
 	opts = {
 		options = {
-			mode = "tabs",
-			-- mode = "buffers",
+			mode = "buffers", -- display buffers like tabs in vscode
 			diagnostics = "nvim_lsp",
 			diagnostics_indicator = function(count, level, diagnostics_dict, context)
 				local s = " "
@@ -15,12 +14,8 @@ return {
 				return s
 			end,
 			show_buffer_icons = true,
-			show_buffer_close_icons = true,
-			show_close_icon = true,
-			show_tab_indicators = true,
-			separator_style = "thin",
 			offsets = {
-				{ filetype = "neo-tree", text = "File Explorer", separator = "" },
+				{ filetype = "neo-tree", text = "File Explorer", separator = true, text_align = "center" },
 			},
 		},
 	},
