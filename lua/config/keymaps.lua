@@ -103,10 +103,10 @@ map("n", "<leader>cm", "<cmd>Mason<cr>", { desc = "Mason" })
 map("i", "<c-cr>", "<esc>o", { desc = "Enter New Line" })
 
 -- add new line above/below current line without entering insert mode
-map({ "n", "v" }, "<leader>au", "O<esc>j", { desc = "Add New Line Above" })
-map({ "n", "v" }, "<leader>ad", "o<esc>k", { desc = "Add New Line Below" })
-map({ "n", "v" }, "[o", "O<esc>j", { desc = "Add New Line Above" })
-map({ "n", "v" }, "]o", "o<esc>k", { desc = "Add New Line Below" })
+map({ "n", "v" }, "<leader>au", "O<esc>j", { desc = "Add New Line Above (Cursor Stays on Current Line)" })
+map({ "n", "v" }, "<leader>ad", "o<esc>k", { desc = "Add New Line Below (Cursor Stays on Current Line)" })
+map({ "n", "v" }, "[o", "O<esc>", { desc = "Add New Line Above (Cursor Moves to New Line)" })
+map({ "n", "v" }, "]o", "o<esc>", { desc = "Add New Line Below (Cursor Moves to New Line)" })
 
 -- exit insert mode in terminal
 map("t", "<A-m>", "<C-\\><C-n>", { desc = "Exit insert mode in terminal" })
