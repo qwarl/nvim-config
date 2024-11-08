@@ -2,7 +2,8 @@ return {
 	"ThePrimeagen/harpoon",
 	branch = "harpoon2",
 	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
+	event = "VeryLazy",
+	keys = function()
 		local harpoon = require("harpoon")
 		harpoon:setup({})
 		local conf = require("telescope.config").values
@@ -23,51 +24,55 @@ return {
 				:find()
 		end
 
-		vim.keymap.set("n", "<leader>he", function()
-			toggle_telescope(harpoon:list())
-		end, { desc = "Open Harpoon Window" })
+		local keys = {
+			{
+				"<leader>he",
+				function()
+					toggle_telescope(harpoon:list())
+				end,
+				{ desc = "Open Harpoon Window" },
+			},
+			{
+				"<leader>ha",
+				function()
+					harpoon:list():add()
+				end,
+				{ desc = "Harpoon Mark" },
+			},
+			{
+				"<leader>hr",
+				function()
+					harpoon:list():remove()
+				end,
+				{ desc = "Harpoon Unmark" },
+			},
 
-		vim.keymap.set("n", "<leader>ha", function()
-			harpoon:list():add()
-		end, { desc = "Harpoon Mark" })
-		vim.keymap.set("n", "<leader>hr", function()
-			harpoon:list():remove()
-		end, { desc = "Harpoon Unmark" })
+			-- Toggle previous & next buffers stored within Harpoon list
+			{
+				"<M-,>",
+				function()
+					harpoon:list():prev()
+				end,
+				{ desc = "Previous Harpoon Mark" },
+			},
+			{
+				"<M-.>",
+				function()
+					harpoon:list():next()
+				end,
+				{ desc = "Next Harpoon Mark" },
+			},
+		}
 
-		vim.keymap.set("n", "<M-1>", function()
-			harpoon:list():select(1)
-		end)
-		vim.keymap.set("n", "<M-2>", function()
-			harpoon:list():select(2)
-		end)
-		vim.keymap.set("n", "<M-3>", function()
-			harpoon:list():select(3)
-		end)
-		vim.keymap.set("n", "<M-4>", function()
-			harpoon:list():select(4)
-		end)
-		vim.keymap.set("n", "<M-5>", function()
-			harpoon:list():select(5)
-		end)
-		vim.keymap.set("n", "<M-6>", function()
-			harpoon:list():select(6)
-		end)
-		vim.keymap.set("n", "<M-7>", function()
-			harpoon:list():select(7)
-		end)
-		vim.keymap.set("n", "<M-8>", function()
-			harpoon:list():select(8)
-		end)
-		vim.keymap.set("n", "<M-9>", function()
-			harpoon:list():select(9)
-		end)
-
-		-- Toggle previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", "<M-,>", function()
-			harpoon:list():prev()
-		end)
-		vim.keymap.set("n", "<M-.>", function()
-			harpoon:list():next()
-		end)
+		for i = 1, 9 do
+			table.insert(keys, {
+				"<leader>" .. i,
+				function()
+					harpoon:list():select(i)
+				end,
+				desc = "Harpoon to File " .. i,
+			})
+		end
+		return keys
 	end,
 }
