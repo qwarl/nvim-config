@@ -39,13 +39,4 @@ return {
 			end,
 		})
 	end,
-	keys = {
-		{
-			"<leader>cR",
-			function()
-				Snacks.rename()
-			end,
-			desc = "Rename File",
-		},
-	},
 }
