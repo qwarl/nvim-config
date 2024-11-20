@@ -14,15 +14,16 @@ return {
 				winbar = false,
 				statusline = true,
 			},
-      default_component_configs = {
-          diagnostics = {
-            symbols = {
-              hint = "", -- Hint symbol
-              info = "", -- Info symbol
-              warn = "", -- Warning symbol
-              error = "" -- Error symbol
-            }
-          }}
+			default_component_configs = {
+				diagnostics = {
+					symbols = {
+						hint = "", -- Hint symbol
+						info = "", -- Info symbol
+						warn = "", -- Warning symbol
+						error = "", -- Error symbol
+					},
+				},
+			},
 		})
 	end,
 	keys = {

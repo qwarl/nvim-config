@@ -45,7 +45,7 @@ return {
 					inactive = { c = { fg = colors.fg, bg = colors.bg } },
 				},
 				-- theme = 'gruvbox'
-				disabled_filetypes = { "neo-tree", "dashboard" },
+				disabled_filetypes = { "neo-tree", "dashboard", "snacks_dashboard" },
 			},
 			sections = {
 				-- these are to remove the defaults

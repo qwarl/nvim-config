@@ -25,5 +25,13 @@ return {
 		vim.keymap.set("n", "<leader>tl", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
+
+		vim.keymap.set("n", "<leader>cl", function()
+			if vim.diagnostic.is_enabled() then
+				vim.diagnostic.enable(false)
+			else
+				vim.diagnostic.enable(true)
+			end
+		end, { desc = "toggle lint" })
 	end,
 }

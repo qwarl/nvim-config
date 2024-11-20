@@ -180,6 +180,7 @@ return {
 					},
 				},
 			},
+      taplo = {},
 		}
 
 		if is_path.exists_in_config("hypr") then

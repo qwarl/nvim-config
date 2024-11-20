@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	lazy = true,
+	cmd = "ConformInfo",
 	event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
 	config = function()
 		local conform = require("conform")
@@ -16,6 +16,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
+        toml = {"taplo"},
 			},
 			format_on_save = function(bufnr)
 				-- Check if global or buffer-local variable enables autoformat
