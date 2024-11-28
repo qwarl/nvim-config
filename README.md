@@ -51,3 +51,5 @@ problems:
     - update: add telescope ui fix this. no need to disable noice anymore
 
 - cannot disable mini indentscope on dashboard snacks (linux, windows not test yet)
+
+- remove table message in noice will make the blank space below statusline disappear.

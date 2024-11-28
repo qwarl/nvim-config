@@ -2,6 +2,7 @@ return {
 	-- setup mini pairs
 	{
 		"echasnovski/mini.pairs",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.pairs").setup()
@@ -10,6 +11,7 @@ return {
 	-- setup mini icons
 	{
 		"echasnovski/mini.icons",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.icons").setup()
@@ -18,6 +20,7 @@ return {
 	-- setup mini surround
 	{
 		"echasnovski/mini.surround",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.surround").setup({
@@ -36,6 +39,7 @@ return {
 	-- setup mini ai
 	{
 		"echasnovski/mini.ai",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.ai").setup()
@@ -44,6 +48,7 @@ return {
 	-- setup mini splitjoin
 	{
 		"echasnovski/mini.splitjoin",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.splitjoin").setup({
@@ -58,6 +63,7 @@ return {
 	-- auto root detection for project files
 	{
 		"echasnovski/mini.misc",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.misc").setup({})
@@ -67,6 +73,7 @@ return {
 	--setup mini move
 	{
 		"echasnovski/mini.move",
+		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.move").setup({})
@@ -75,9 +82,71 @@ return {
 	-- setup mini indent
 	{
 		"echasnovski/mini.indentscope",
+		event = "VeryLazy",
 		version = false,
 		config = function()
+			-- if init function can't disable mini indentscope for snacks_dashboard. This is a workaround
+			local current_filetype = vim.bo.filetype
+			if
+				vim.tbl_contains({
+					"Trouble",
+					"alpha",
+					"dashboard",
+					"snacks_dashboard",
+					"fzf",
+					"help",
+					"lazy",
+					"mason",
+					"neo-tree",
+					"notify",
+					"snacks_notif",
+					"snacks_terminal",
+					"snacks_win",
+					"toggleterm",
+					"trouble",
+				}, current_filetype)
+			then
+				vim.b.miniindentscope_disable = true
+			end
+
 			require("mini.indentscope").setup()
+		end,
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = {
+					"Trouble",
+					"alpha",
+					"dashboard",
+					"snacks_dashboard",
+					"fzf",
+					"help",
+					"lazy",
+					"mason",
+					"neo-tree",
+					"notify",
+					"snacks_notif",
+					"snacks_terminal",
+					"snacks_win",
+					"toggleterm",
+					"trouble",
+				},
+				callback = function()
+					vim.b.miniindentscope_disable = true
+				end,
+			})
+		end,
+	},
+	{
+		"echasnovski/mini.diff",
+		version = false,
+		event = "VeryLazy",
+		config = function()
+			require("mini.diff").setup({
+				view = {
+					style = "sign",
+					signs = { add = "▎", change = "▎", delete = "▎" },
+				},
+			})
 		end,
 	},
 }

@@ -112,3 +112,7 @@ map({ "n", "v" }, "]o", "o<esc>", { desc = "Add New Line Below (Cursor Moves to 
 map("t", "<A-m>", "<C-\\><C-n>", { desc = "Exit insert mode in terminal" })
 map("t", "<esc>", "<C-\\><C-n>", { desc = "Exit insert mode in terminal" })
 map({ "n", "v" }, "<leader>ct", "<cmd>terminal<cr>", { desc = "New Terminal" })
+
+-- undo and redo in insert mode
+map("i", "<a-z>", "<esc>ua", { desc = "Undo when in insert mode"})
+map("i", "<a-y>", "<esc><c-r>a", { desc = "Redo when in insert mode"})

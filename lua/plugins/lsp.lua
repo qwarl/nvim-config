@@ -25,7 +25,7 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-        map("<leader>K", vim.lsp.buf.hover, "Show Hover Information")
+				map("<leader>K", vim.lsp.buf.hover, "Show Hover Information")
 
 				map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 
@@ -180,7 +180,7 @@ return {
 					},
 				},
 			},
-      taplo = {},
+			taplo = {},
 		}
 
 		if is_path.exists_in_config("hypr") then
@@ -192,9 +192,9 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			-- linter and formatter
-      "beautysh",
-      "black",
-      "eslint_d",
+			"beautysh",
+			"black",
+			"eslint_d",
 			"markdownlint-cli2",
 			"markdown-toc",
 			"prettier",
