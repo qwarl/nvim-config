@@ -22,7 +22,7 @@ return {
 			callback = function(event)
 				local map = function(keys, func, desc, mode)
 					mode = mode or "n"
-					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
 				end
 
 				map("<leader>K", vim.lsp.buf.hover, "Show Hover Information")

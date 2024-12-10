@@ -148,5 +148,17 @@ return {
 				},
 			})
 		end,
+		keys = {
+			{
+				"<leader>td",
+				"<cmd>lua MiniDiff.toggle_overlay()<cr>",
+				desc = "Toggle Mini Diff Overlay",
+			},
+			{
+				"<leader>to",
+				"<cmd>lua MiniDiff.textobject()<cr>",
+				desc = "Mini Diff Text Object",
+			},
+		},
 	},
 }

@@ -17,6 +17,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
         toml = {"taplo"},
+        sh = {"beautysh"},
 			},
 			format_on_save = function(bufnr)
 				-- Check if global or buffer-local variable enables autoformat
