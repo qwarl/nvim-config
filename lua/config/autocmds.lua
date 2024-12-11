@@ -56,3 +56,15 @@ vim.api.nvim_create_autocmd("FileType", {
 		})
 	end,
 })
+
+-- autodetect filetype after shebang
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = '*',
+  group = augroup('FileDetect', {}),
+  desc = 'Detect filetype on files with no extension after saving the file',
+  callback = function()
+    if vim.bo.filetype == '' then
+      vim.cmd('filetype detect')
+    end
+  end,
+})
