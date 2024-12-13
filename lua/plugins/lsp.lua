@@ -1,4 +1,4 @@
-local is_path = require("util.config_checker")
+local is_path = require("util")
 
 return {
 	-- Main LSP Configuration
